@@ -1,10 +1,8 @@
 /**
  * Basic geometry structures using integers. 
- * Most operations are constant time.
+ *
+ * Complexity: O(1) for all operations.
  **/
-
-#include <bits/stdc++.h>
-using namespace std;
 
 using coord = long long;
 const double EPS = 1e-8;
@@ -143,8 +141,4 @@ point circumcenter(point a, point b, point c){
 	b = b-a; c = c-a;
 	assert((b^c) != 0); // a,b,c alligned = no circumcircle
 	return a + (b*c.norm2()-c*b.norm2()).perp()/((b^c)*2);
-}
-
-int main() {
-
 }
