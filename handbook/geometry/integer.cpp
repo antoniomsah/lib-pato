@@ -1,7 +1,7 @@
 /**
  * Basic geometry structures using integers. 
  *
- * Complexity: O(1) for all operations.
+ * Complexity: O(1) unless stated.
  **/
 
 using coord = long long;
@@ -52,6 +52,14 @@ struct point {
 // returns two times the area of the triangle
 coord area2(point a, point b, point c) {
 	return (b-a)^(c-a);
+}
+
+bool left(point a, point b, point c) {
+	return area2(a,b,c) > 0;
+}
+
+bool right(point a, point b, point c) {
+	return area2(a,b,c) < 0;
 }
 
 // sorts the point array based on angle
