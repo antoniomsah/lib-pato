@@ -1,3 +1,9 @@
+/**
+ * Dinitz's algorithm for finding maximum flows.
+ *
+ * Complexity: O(n^2m) (O(m sqrt(n)) on unit networks)
+ **/
+
 template <typename T>
 struct Dinic {
 	struct Edge {
