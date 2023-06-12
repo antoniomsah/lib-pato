@@ -1,8 +1,9 @@
 template <typename T>
 struct Dinic {
 	struct Edge {
-		int to, cap, flow;
-		Edge(int _to, int _cap) :
+		int to;
+		T cap, flow;
+		Edge(int _to, T _cap) :
 			to(_to), cap(_cap), flow(0) {}
 	};
 
