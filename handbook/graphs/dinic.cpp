@@ -20,7 +20,7 @@ struct Dinic {
 	Dinic(int _s, int _t, int n) : 
 		s(_s), t(_t), dist(n), frst(n,-1), q(n) {}
 
-	void add(int u, int v, int cap){
+	void add(int u, int v, T cap){
 		edges.emplace_back(v,cap);
 		nxt.push_back(frst[u]);
 		frst[u] = edges.size()-1;
