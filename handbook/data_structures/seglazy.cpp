@@ -15,26 +15,26 @@ struct segtree {
     
 	segtree(int n) : n(n), seg(4*n), lazy(4*n) {}
  
-    void prop(int p, int l, int r){
-        seg[p] += lazy[p]*(r-l+1);
-        if(l!=r) lazy[2*p] += lazy[p], lazy[2*p+1] += lazy[p];
-        lazy[p] = 0;
-    }
+	void prop(int p, int l, int r){
+		seg[p] += lazy[p]*(r-l+1);
+		if(l!=r) lazy[2*p] += lazy[p], lazy[2*p+1] += lazy[p];
+		lazy[p] = 0;
+	}
  
 	T update(int a, int b, int x, int p, int l, int r) {
-        prop(p,l,r);
-        if(a <= l and r <= b){
-            lazy[p] += x;
-            prop(p,l,r);
-            return seg[p];
-        }
+		prop(p,l,r);
+		if(a <= l and r <= b){
+			lazy[p] += x;
+			prop(p,l,r);
+			return seg[p];
+		}
 		if(b < l or r < a) return seg[p];
 		int m=(l+r)/2;
 		return seg[p] = update(a,b,x,2*p,l,m)+update(a,b,x,2*p+1,m+1,r);
 	}
  
 	T query(int a, int b, int p, int l, int r){
-        prop(p,l,r);
+		prop(p,l,r);
 		if(a <= l and r <= b) return seg[p];
 		if(b < l or r < a) return 0;
 		int m = (l+r)/2;
