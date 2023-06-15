@@ -13,12 +13,12 @@ struct Dinic {
 			to(_to), cap(_cap), flow(0) {}
 	};
 
-	int s,t;
+	int src,snk;
 	vector<int> nxt, ptr, frst, dist, q;
 	vector<Edge> edges;
 
-	Dinic(int _s, int _t, int n) : 
-		s(_s), t(_t), dist(n), frst(n,-1), q(n) {}
+	Dinic(int n) : 
+		dist(n), frst(n,-1), q(n) {}
 
 	void add(int u, int v, T cap){
 		edges.emplace_back(v,cap);
@@ -33,8 +33,8 @@ struct Dinic {
 	bool bfs() {
 		fill(dist.begin(), dist.end(), -1);
 		int st=0,ed=0;
-		q[ed++] = s;
-		dist[s] = 0;
+		q[ed++] = src;
+		dist[src] = 0;
 		while(st<ed){
 			int u = q[st++];
 			for(int e=frst[u]; e != -1; e = nxt[e]) {
@@ -45,11 +45,11 @@ struct Dinic {
 				}
 			}
 		}
-		return dist[t] != -1;
+		return dist[snk] != -1;
 	}
 
 	T dfs(int u, T f=INF){
-		if(u == t or f == 0) return f;
+		if(u == snk or f == 0) return f;
 		for(int &e=ptr[u]; e != -1; e=nxt[e]) {
 			int v = edges[e].to;
 			if(dist[u]+1 == dist[v] and edges[e].cap > edges[e].flow){
@@ -64,11 +64,12 @@ struct Dinic {
 		return 0;
 	}
 
-	T flow() {
+	T flow(int _src, int _snk) {
+		src=_src, snk=_snk;
 		T flow=0;
 		while(bfs()){
 			ptr=frst;
-			while(T add_flow=dfs(s)) flow += add_flow;
+			while(T add_flow=dfs(src)) flow += add_flow;
 		}
 		return flow;
 	}
