@@ -9,16 +9,11 @@ struct segtree {
 		return seg[p] = build(2*p,l,m,v)+build(2*p+1,m+1,r,v);
 	}
  
-	segtree(vector<T> &v) : n(v.size()) { 
-        seg.assign(4*n,0ll);
-        lazy.assign(4*n,0ll);
-        build(1,0,n-1,v); 
-    }
+	segtree(vector<T> &v) : n(v.size()), seg(4*n), lazy(4*n) { 
+		build(1,0,n-1,v); 
+	}
     
-	segtree(int n) : n(n) {
-        seg.assign(4*n,0ll);
-        lazy.assign(4*n,0ll);
-    }
+	segtree(int n) : n(n), seg(4*n), lazy(4*n) {}
  
     void prop(int p, int l, int r){
         seg[p] += lazy[p]*(r-l+1);
