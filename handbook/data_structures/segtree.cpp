@@ -10,8 +10,8 @@ struct segtree {
 	}
  
 	segtree(vector<T> &v) : n(v.size()), seg(4*n) { 
-        build(1,0,n-1,v); 
-    }
+		build(1,0,n-1,v); 
+	}
 	segtree(int n) : n(n), seg(4*n) {}
  
 	T update(int a, int x, int p, int l, int r) {
