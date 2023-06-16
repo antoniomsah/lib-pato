@@ -1,6 +1,6 @@
 template<typename T> 
 struct Matrix : vector<vector<T>> {
-	int n, m;
+	int n,m;
     Matrix(const vector<vector<T>>& c) : vector<vector<T>>(c), n(c.size()), m(c[0].size()) {}
 	Matrix(int n, int m) : vector<vector<T>>(n,vector<T>(m,0)),n(n),m(m){}
     Matrix(const initializer_list<initializer_list<T>>& c) {
