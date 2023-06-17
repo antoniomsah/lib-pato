@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 
+using namespace std;
+
 #define fastio ios_base::sync_with_stdio(0); cin.tie(0)
 #define int long long
-
-using namespace std;
+#define pb push_back
 
 void dbg_out() { cerr << endl; }
 template <typename H, typename... T>
