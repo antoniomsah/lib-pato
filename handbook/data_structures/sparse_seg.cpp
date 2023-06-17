@@ -19,7 +19,7 @@ struct sseg{
         if(l!=r) lazy[get_l(p)]+=lazy[p], lazy[get_r(p)]+=lazy[p];
         lazy[p] = 0;
     }
-    T update(int a, int b, int x, int p, int l, int r){
+    T update(int a, int b, T x, int p, int l, int r){
         prop(p,l,r);
         if(a <= l and r <= b){
             lazy[p] += x;
@@ -37,6 +37,6 @@ struct sseg{
         int m = (l+r)/2;
         return query(a,b,get_l(p),l,m)+query(a,b,get_r(p),m+1,r);
     }
-    void update(int a, int b, int x){update(a,b,x,1,0,N-1);};
+    void update(int a, int b, T x){update(a,b,x,1,0,N-1);};
     T query(int a, int b){return query(a,b,1,0,N-1);};
 };
