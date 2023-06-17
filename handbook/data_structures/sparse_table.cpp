@@ -13,7 +13,7 @@ struct sparse {
 		for(int j=1;(1<<j)<=n;j++) for(int i=0;i+(1<<j)<=n;i++)
 			m[j][i] = min(m[j-1][i], m[j-1][i+(1<<(j-1))]);
 	}
-	int query(int a, int b) {
+	T query(int a, int b) {
 		int j = 31 - __builtin_clz(b-a+1);
 		return min(m[j][a], m[j][b-(1<<j)+1]);
 	}
