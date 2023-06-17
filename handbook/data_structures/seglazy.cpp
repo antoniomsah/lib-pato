@@ -21,7 +21,7 @@ struct seglazy {
 		lazy[p] = 0;
 	}
  
-	T update(int a, int b, int x, int p, int l, int r) {
+	T update(int a, int b, T x, int p, int l, int r) {
 		prop(p,l,r);
 		if(a <= l and r <= b){
 			lazy[p] += x;
@@ -41,6 +41,6 @@ struct seglazy {
 		return query(a,b,2*p,l,m)+query(a,b,2*p+1,m+1,r);
 	}
  
-	void update(int a, int b, int x) { update(a,b,x,1,0,n-1); }
+	void update(int a, int b, T x) { update(a,b,x,1,0,n-1); }
 	T query(int a, int b) { return query(a,b,1,0,n-1); }
 };
