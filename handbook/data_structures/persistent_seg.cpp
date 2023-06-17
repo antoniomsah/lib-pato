@@ -33,7 +33,7 @@ struct pseg{
 		int m = (l+r)/2;
 		return query(a,b,L[k],l,m) + query(a,b,R[k],m+1,r);
 	}
-	int update(int p, int x, int k){return rt=update(p,x,k,0,n-1);}
-	int update(int p, int x){return update(p,x,rt);}
+	int update(int p, T x, int k){return rt=update(p,x,k,0,n-1);}
+	int update(int p, T x){return update(p,x,rt);}
 	T query(int a, int b, int k){return query(a,b,k,0,n-1);};
 };
