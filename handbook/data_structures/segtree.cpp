@@ -14,7 +14,7 @@ struct segtree {
 	}
 	segtree(int n) : n(n), seg(4*n) {}
  
-	T update(int a, int x, int p, int l, int r) {
+	T update(int a, T x, int p, int l, int r) {
 		if(a < l or r < a) return seg[p];
 		if(l == r) return seg[p] = x;
 		int m=(l+r)/2;
@@ -28,6 +28,6 @@ struct segtree {
 		return query(a,b,2*p,l,m)+query(a,b,2*p+1,m+1,r);
 	}
  
-	void update(int a, int x) { update(a,x,1,0,n-1); }
+	void update(int a, T x) { update(a,x,1,0,n-1); }
 	T query(int a, int b) { return query(a,b,1,0,n-1); }
 };
