@@ -1,9 +1,12 @@
-//  MO algorithm
-
-//  Description: 
-//      Answers queries offline with sqrt decomposition.
-//  Complexity: 
-//      exec - O(n*sqrt(n)*O(remove / add))
+/**
+ * MO's algorithm
+ *
+ * Description: 
+ * 		Answers queries offline with sqrt decomposition.
+ *
+ * Complexity:
+ * 		exec: O(nsqrt(n)O(remove/add))
+ **/
 
 const int SZ = 230;
 
@@ -16,11 +19,12 @@ struct Query {
     }
 };
 
+template <typename T>
 struct MO {
     int sum;
-    MO(vector<ll> &v) : sum(0), v(v), cnt(N), C(N) {}
+    MO(vector<T> &v) : sum(0), v(v), cnt(MAXN), C(MAXN) {}
 
-    void exec(vector<Query> &queries, vector<ll> &answers) {
+    void exec(vector<Query> &queries, vector<T> &answers) {
         answers.resize(queries.size());
         sort(queries.begin(), queries.end());
 
@@ -56,7 +60,7 @@ struct MO {
         sum -= v[i];
     }
 
-    ll get_answer(int l, int r) {
+    T get_answer(int l, int r) {
         return sum;
     }
 };

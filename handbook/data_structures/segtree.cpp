@@ -1,3 +1,16 @@
+/**
+ * Segment tree
+ *
+ * Functions:
+ * 		update(p,x): updates the value at position p to x
+ * 		query(l,r):  the sum of all elements in range [l,r]
+ *
+ * Complexity:
+ * 		build:	 O(n)
+ * 		update:	 O(lgn)
+ * 		query:	 O(lgn)
+ **/
+
 template <typename T>
 struct segtree {
 	int n;
@@ -28,6 +41,6 @@ struct segtree {
 		return query(a,b,2*p,l,m)+query(a,b,2*p+1,m+1,r);
 	}
  
-	void update(int a, T x) { update(a,x,1,0,n-1); }
-	T query(int a, int b) { return query(a,b,1,0,n-1); }
+	void update(int p, T x) { update(p,x,1,0,n-1); }
+	T query(int l, int r) { return query(l,r,1,0,n-1); }
 };
