@@ -1,26 +1,34 @@
-// CHT - Dynamic Convex Hull Trick
-// Description: Maintain the convex hull of some functions
-// Complexity: 
-//     add - O(logN)
-//     query - O(logN)
+/**
+ * Dynamic Convex Hull Trick
+ *
+ * Description:
+ * 		Maintains the convex hull of some functions. 
+ * 		Copied from github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/chtDinamico.cpp.
+ *
+ * Functions: 
+ * 		add(a,b): adds line (ax+b) to the convex hull.
+ * 		query(x): returns the maximum value of any line on point x.
+ *
+ * Complexity:
+ * 		add:	O(logn)
+ * 		query:	O(logn)
+ *
+ * Details:
+ * 		If you want to maintain the bottom convex hull, it is
+ * 		easier to just change the sign. Be careful with overflow
+ * 		on query. Can use __int128 to avoid.
+ **/
 
-// Functions:
-//     add(a, b) - add line (a * x + b) to the convex hull.
-//     query (x) - return the maximum value of any line on point x.
-
-// Details:
-//     If you want to maintain the bottom convex hull, it is
-//     easier to just change the sign. Be careful with overflow
-//     on query. Can use __int128 to avoid.
-
+template <typename T>
 struct Line {
-    mutable ll a, b, p;
+    mutable T a, b, p;
     bool operator<(const Line& o) const { return a < o.a; }
-    bool operator<(ll x) const { return p < x; }
+    bool operator<(T x) const { return p < x; }
 };
 
-struct dynamic_hull : multiset<Line, less<>> {
-    ll div(ll a, ll b) { 
+template <typename T>
+struct dynamic_hull : multiset<Line<T>, less<>> {
+    T div(T a, T b) { 
         return a / b - ((a ^ b) < 0 and a % b);
     }
     
@@ -37,7 +45,7 @@ struct dynamic_hull : multiset<Line, less<>> {
         return x->p >= next(x)->p;
     }
         
-    void add(ll a, ll b) {
+    void add(T a, T b) {
         auto x = insert({a, b, 0});
         while (overlap(x)) erase(next(x)), update(x);
         if (x != begin() and !overlap(prev(x))) x = prev(x), update(x);
@@ -45,7 +53,7 @@ struct dynamic_hull : multiset<Line, less<>> {
             x = prev(x), erase(next(x)), update(x);
     }
     
-    ll query(ll x) {
+    T query(T x) {
         assert(!empty());
         auto l = *lower_bound(x);
         // if(l.a and abs(x) >= abs(INF/l.a)) return INF/2;
