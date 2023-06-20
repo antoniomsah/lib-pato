@@ -26,12 +26,12 @@ struct segtree {
 		return seg[p] = build(2*p,l,m,v)+build(2*p+1,m+1,r,v);
 	}
 
-	segtree(vector<T> &v) : n(v.size()), seg(4*n), lazy(4*n) { build(1,0,n-1); }
+	segtree(vector<T> &v) : n(v.size()), seg(4*n), lazy(4*n) { build(1,0,n-1,v); }
 	segtree(int n) : n(n), seg(4*n), lazy(4*n) {}
 
 	void prop(int p, int l, int r) {
 		seg[p] += lazy[p]*(r-l+1);
-		if(l != r) seg[2*p] += lazy[p], seg[2*p+1] += lazy[p];
+		if(l != r) lazy[2*p] += lazy[p], lazy[2*p+1] += lazy[p];
 		lazy[p] = NEUT;
 	}
 
