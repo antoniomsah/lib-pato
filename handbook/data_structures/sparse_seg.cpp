@@ -7,8 +7,8 @@
  *
  * Complexity:
  * 		build: 	O(1)
- * 		query: 	O(lgn)
- * 		update:	O(lgn)
+ * 		query: 	O(lgN)
+ * 		update:	O(lgN)
  **/
 
 template <typename T>
