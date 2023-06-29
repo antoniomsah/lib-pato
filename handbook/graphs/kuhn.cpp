@@ -1,7 +1,7 @@
 struct Kuhn {
     int max_match;
     vector<int> mat;
-    kuhn(int n, int m, vector<vector<int>> &adj):mat(m,-1),max_match(0){
+    Kuhn(int n, int m, vector<vector<int>> &adj):mat(m,-1),max_match(0){
         vector<bool> vis(n);
         function<bool(int)> match = [&](int x){
             if(vis[x]) return false;
