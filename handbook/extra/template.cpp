@@ -5,6 +5,7 @@ using namespace std;
 #define fastio ios_base::sync_with_stdio(0); cin.tie(0)
 #define int long long
 #define pb push_back
+#define all(a) a.begin(), a.end()
 
 void dbg_out() { cerr << endl; }
 template <typename H, typename... T>
