@@ -41,7 +41,7 @@ namespace hld {
 					swap(v, adj[u][0]);
 				}
 			}
-			if(u == root and f) dfs(u,t=false);
+			if(u == root and f) dfs(h[u]=u,t=false);
 		};
 
 		dfs(root,true);
@@ -50,7 +50,7 @@ namespace hld {
 
 	long long query_path(int a, int b) {
 		if(pos[a] < pos[b]) swap(a,b);
-		if(h[a] == h[b]) return seg.query(pos[a],pos[b]);
+		if(h[a] == h[b]) return seg.query(pos[b],pos[a]);
 		return seg.query(pos[h[a]], pos[a]) + query_path(p[h[a]], b);
 	}
 
