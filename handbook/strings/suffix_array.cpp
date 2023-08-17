@@ -1,13 +1,10 @@
-/**
- * Suffix array
- *
- * Description:
- * 		Builds a sorted array of all suffixes of a string.
- * 		Copied from https://github.com/wmrmrx/competitive-programming/blob/master/code/suffix_array.cpp
- *
- * Complexity:
- * 		build: O(nlgn)
- **/
+// Suffix array
+//
+// Description:
+// 		Builds a sorted array of all suffixes of a string.
+//
+// Complexity:
+// 		build: O(nlgn)
 
 struct SuffixArray {
 	vector<int> v, inv, lcp;

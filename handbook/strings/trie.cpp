@@ -1,13 +1,12 @@
-/**
- *	Trie
- *
- *	Description: Data structure for strings.
- *
- *	Complexity:
- *		add: O(|s|)
- *		erase: O(|s|)
- *		find: O(|s|)
- **/
+//	Trie data structure
+//
+//	Description: 
+//		Data structure for strings.
+//
+//	Complexity:
+//		add: O(|s|)
+//		erase: O(|s|)
+//		find: O(|s|)
 
 struct trie {
 	int sigma, offset;

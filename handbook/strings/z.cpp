@@ -1,11 +1,10 @@
-/**
- * Z-function. 
- *
- * z[i]: is the longest suffix that starts in i that is also
- * a suffix that starts at 0.
- *
- * Complexity: O(n)
- **/
+// Z-function. 
+//
+// Description:
+//	 z[i]: is the longest suffix that starts in i that is also
+//	 a suffix that starts at 0.
+//
+// Complexity: O(n)
 
 template<typename T>
 vector<int> z_function(int n, const T s[]) {
