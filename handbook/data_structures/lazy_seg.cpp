@@ -1,15 +1,13 @@
-/**
- * Segment tree with lazy propagation.
- *
- * Functions: 
- * 		update(l,r,x):	sums x to all element in [l,r]
- * 		query(l,r):		sum of all elements in range [l,r]
- *
- * Complexity:
- * 		build: 	O(n)
- * 		update: O(lgn)
- * 		query:	O(lgn)
- **/
+// Segment tree with lazy propagation
+//
+// Functions:
+// 		update(l,r,x): sums x to all elements in range [l,r]
+// 		query(l,r): sum of all elements in range [l,r]
+//
+// Complexity:
+// 		build: O(n)
+// 		update: O(lgn)
+// 		query: O(lgn)
 
 // neutral element
 const int NEUT = 0;

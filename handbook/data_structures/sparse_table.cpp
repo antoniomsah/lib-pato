@@ -1,13 +1,11 @@
-/**
- * Sparse table
- *
- * Functions:
- * 		query(l,r): minimum element in range [l,r]
- *
- * Complexity:
- * 		build: O(nlgn)
- * 		query: O(1)
- **/
+ // Sparse table
+ //
+ // Functions:
+ // 		query(l,r): minimum element in range [l,r]
+ //
+ // Complexity:
+ // 		build: O(nlgn)
+ // 		query: O(1)
 
 template <typename T>
 struct sparse {

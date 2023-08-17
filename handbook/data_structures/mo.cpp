@@ -1,3 +1,11 @@
+// MO's algorithm
+//
+// Description:
+// 		Answers queries offline with sqrt decomposition
+//
+// Complexity:
+// 		exec: O(nsqrt(n)(O(remove)+O(add)))
+
 /**
  * MO's algorithm
  *

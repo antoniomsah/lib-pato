@@ -1,16 +1,14 @@
-/**
- * Persistent Segment Tree
- *
- * Functions:
- * 		update(p,x,t):	updates the value at position p to x of version t
- * 		update(p,x):	updates the value at position p to x of the last version
- * 		query(l,r,t):	sum of all elements in range [l,r] at version t
- *
- * Complexity:
- * 		build: 	O(n)
- * 		update: O(lgn)
- * 		query:	O(lgn)
- **/
+ // Persistent Segment Tree
+ //
+ // Functions:
+ // 		update(p,x,t):	updates the value at position p to x of version t
+ // 		update(p,x):	updates the value at position p to x of the last version
+ // 		query(l,r,t):	sum of all elements in range [l,r] at version t
+ //
+ // Complexity:
+ // 		build: 	O(n)
+ // 		update: O(lgn)
+ // 		query:	O(lgn)
 
 template <typename T>
 struct pseg{
