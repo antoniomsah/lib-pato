@@ -1,34 +1,30 @@
-/**
- * Dynamic Convex Hull Trick
- *
- * Description:
- * 		Maintains the convex hull of some functions. 
- * 		Copied from github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/chtDinamico.cpp.
- *
- * Functions: 
- * 		add(a,b): adds line (ax+b) to the convex hull.
- * 		query(x): returns the maximum value of any line on point x.
- *
- * Complexity:
- * 		add:	O(logn)
- * 		query:	O(logn)
- *
- * Details:
- * 		If you want to maintain the bottom convex hull, it is
- * 		easier to just change the sign. Be careful with overflow
- * 		on query. Can use __int128 to avoid.
- **/
+// Dynamic Convex Hull Trick
+//
+// Description:
+// 		Maintains the convex hull of some functions. 
+// 		Copied from github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/chtDinamico.cpp.
+//
+// Functions: 
+// 		add(a,b): adds line (ax+b) to the convex hull.
+// 		query(x): returns the maximum value of any line on point x.
+//
+// Complexity:
+// 		add:	O(logn)
+// 		query:	O(logn)
+//
+// Details:
+// 		If you want to maintain the bottom convex hull, it is
+// 		easier to just change the sign. Be careful with overflow
+// 		on query. Can use __int128 to avoid.
 
-template <typename T>
 struct Line {
-    mutable T a, b, p;
+    mutable ll a, b, p;
     bool operator<(const Line& o) const { return a < o.a; }
-    bool operator<(T x) const { return p < x; }
+    bool operator<(ll x) const { return p < x; }
 };
 
-template <typename T>
-struct dynamic_hull : multiset<Line<T>, less<>> {
-    T div(T a, T b) { 
+struct dynamic_hull : multiset<Line, less<>> {
+    ll div(ll a, ll b) { 
         return a / b - ((a ^ b) < 0 and a % b);
     }
     
@@ -45,7 +41,7 @@ struct dynamic_hull : multiset<Line<T>, less<>> {
         return x->p >= next(x)->p;
     }
         
-    void add(T a, T b) {
+    void add(ll a, ll b) {
         auto x = insert({a, b, 0});
         while (overlap(x)) erase(next(x)), update(x);
         if (x != begin() and !overlap(prev(x))) x = prev(x), update(x);
@@ -53,7 +49,7 @@ struct dynamic_hull : multiset<Line<T>, less<>> {
             x = prev(x), erase(next(x)), update(x);
     }
     
-    T query(T x) {
+    ll query(ll x) {
         assert(!empty());
         auto l = *lower_bound(x);
         // if(l.a and abs(x) >= abs(INF/l.a)) return INF/2;
