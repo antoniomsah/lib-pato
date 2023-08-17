@@ -1,8 +1,6 @@
 // Ordered set (0-indexed)
 //
 // Description:
-//
-// Description:
 // 		It has the same properties and functions of the regular set and
 // 		two extra functions.
 //
