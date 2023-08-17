@@ -1,4 +1,4 @@
-// Tarjan's algorithm for edge-biconnected components
+// Tarjan algorithm for edge-biconnected components
 //
 // Description:
 // 		Builds an array ebcc such that ebcc[u] = ebcc[v] iff

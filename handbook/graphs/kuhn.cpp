@@ -1,3 +1,5 @@
+// Kuhn algorithm
+
 struct Kuhn {
     int max_match;
     vector<int> mat;

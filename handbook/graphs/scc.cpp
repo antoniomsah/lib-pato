@@ -1,4 +1,4 @@
-// Tarjan's algorithm for strongly connected components
+// Tarjan algorithm for strongly connected components
 //
 // Description: 
 // 		Builds an array scc such that scc[u] = scc[v] 

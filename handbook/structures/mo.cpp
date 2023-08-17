@@ -1,20 +1,10 @@
-// MO's algorithm
+// MOs algorithm
 //
 // Description:
 // 		Answers queries offline with sqrt decomposition
 //
 // Complexity:
 // 		exec: O(nsqrt(n)(O(remove)+O(add)))
-
-/**
- * MO's algorithm
- *
- * Description: 
- * 		Answers queries offline with sqrt decomposition.
- *
- * Complexity:
- * 		exec: O(nsqrt(n)O(remove/add))
- **/
 
 const int SZ = 230;
 

@@ -1,13 +1,13 @@
- // Segment tree
- //
- // Functions:
- // 		update(p,x): updates the value at position p to x
- // 		query(l,r):  the sum of all elements in range [l,r]
- //
- // Complexity:
- // 		build:	 O(n)
- // 		update:	 O(lgn)
- // 		query:	 O(lgn)
+// Segment tree
+//
+// Functions:
+// 		update(p,x): updates the value at position p to x
+// 		query(l,r):  the sum of all elements in range [l,r]
+//
+// Complexity:
+// 		build:	 O(n)
+// 		update:	 O(lgn)
+// 		query:	 O(lgn)
 
 template <typename T>
 struct segtree {

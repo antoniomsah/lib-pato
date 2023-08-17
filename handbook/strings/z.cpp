@@ -1,4 +1,4 @@
-// Z-function. 
+// Z-function
 //
 // Description:
 //	 z[i]: is the longest suffix that starts in i that is also

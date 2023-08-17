@@ -1,3 +1,5 @@
+// fast io
+
 int read_int() {
     bool minus = false;
     int result = 0;

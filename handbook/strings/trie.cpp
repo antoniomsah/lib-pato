@@ -1,9 +1,9 @@
-//	Trie data structure
+// Trie data structure
 //
-//	Description: 
-//		Data structure for strings.
+// Description: 
+// 		Data structure for strings.
 //
-//	Complexity:
+// Complexity:
 //		add: O(|s|)
 //		erase: O(|s|)
 //		find: O(|s|)

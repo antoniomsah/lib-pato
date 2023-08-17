@@ -1,13 +1,13 @@
- // Sparse segment tree.
- //
- // Functions:
- // 		query(l,r):		sum in range [l,r]
- // 		update(l,r,x):	sums x to all elements in [l,r]
- //
- // Complexity:
- // 		build: 	O(1)
- // 		query: 	O(lgn)
- // 		update:	O(lgn)
+// Sparse segment tree
+//
+// Functions:
+// 		query(l,r):		sum in range [l,r]
+// 		update(l,r,x):	sums x to all elements in [l,r]
+//
+// Complexity:
+// 		build: 	O(1)
+// 		query: 	O(lgn)
+// 		update:	O(lgn)
 
 template <typename T>
 struct sseg{
