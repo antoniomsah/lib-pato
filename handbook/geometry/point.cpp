@@ -50,3 +50,10 @@ struct Point {
 		return os<<"("<<p.x<<", "<<p.y<<")"; 
 	}
 };
+
+template <typename T>
+void polarsort(vector<T> &v) {
+	sort(v.begin(), v.end(), [](T a, T b) {
+		return make_tuple(a.side(), 0) < make_tuple(b.side(), a^b); 
+	});
+}
