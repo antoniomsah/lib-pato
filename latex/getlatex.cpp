@@ -270,7 +270,7 @@ int main(int argc, char** argv) {
 	cout << "\\pagebreak" << endl;
 	printa_section("extra");
 	vector<pair<string, string>> files;
-	dfs(files, path + "Extra", true);
+	dfs(files, path + "extra", true);
 
 	cout << "\\end{document}\n";
 	return 0;
