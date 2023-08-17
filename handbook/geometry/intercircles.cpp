@@ -1,9 +1,10 @@
-/**
- * Algorithm from el-vasito.
- * Area covered from multiple circles intersections. 
- *
- * Complexity: O(n^2 log n) with high constant.
- **/
+// Circle intersection area algorithm
+//
+// Description:
+// 		Algorithm from el-vasito. 
+// 		Finds the area covered by at least k circles.
+//
+// Complexity: O(n^2 lgn) with high constant.
 
 bool cmp(point a, point b, point o){
 	a = a-o, b = b-o;

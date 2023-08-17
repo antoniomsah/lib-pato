@@ -1,9 +1,10 @@
-/**
- * Monotone chain algorithm.
- * Border represents the inclusion of collinear points.
- *
- * Complexity: O(nlgn)
- **/
+// Convex hull
+//
+// Description: 
+// 		Monotone chain algorihtm.
+// 		Border represents the inclusion of collinear points
+//
+// Complexity: O(nlgn)
 
 vector<point> convex_hull(vector<point> p, bool border=0){
 	if(p.size() == 1) return p;

@@ -1,8 +1,8 @@
-/**
- * Polygon structure. 
- * Dependencies: point structure.
- * Complexity: O(1) unless stated
- **/
+// Polygon structure
+//
+// Dependencies: point
+//
+// Complexity: O(1) unless stated
 
 struct polygon {
 	int n;
@@ -10,10 +10,8 @@ struct polygon {
 	polygon() {}
 	polygon(vector<point> q) : n(q.size()), p(q) {}
 
-	/**
-	 * Positive represents counter-clockwise order. Negative represent clockwise order.
-	 * Complexity: O(n)
-	 **/
+	// Positive represents counter-clockwise order. Negative represent clockwise order.
+	// Complexity: O(n)
 	coord orientation() {
 		coord acum=0;
 		for(int i=0; i<n; i++) {
@@ -26,10 +24,8 @@ struct polygon {
 	double area() { return double(area2())/2; }
 	coord area2() { return abs(orientation()); }
 
-	/**
-	 * Return true if point q is inside the polygon. The polygon must be convex and in ccw order.
-	 * Complexity: O(lgn)
-	 **/
+	// Return true if point q is inside the polygon. The polygon must be convex and in ccw order.
+	// Complexity: O(lgn)
 	bool contains(point q) {
 		if(right(p[0],p[1],q) or left(p[0],p[n-1],q)) return false;
 		int l=1, r=n;
@@ -42,15 +38,13 @@ struct polygon {
 		return !right(p[l],p[r],q);
 	}
 
-	/**
-	 * Returns the squared diameter (uses rotating calipers).
-	 * Complexity: O(n)
-	 **/
+	// Returns the squared diameter (uses rotating calipers).
+	// Complexity: O(n)
 	coord diameter(){ 
 		coord ans=0;
 		for(int i=0,j=1; i<n; i++){
 			while(((p[(i+1)%n]-p[i])^(p[(j+1)%n]-p[j])) > 0) j = (j+1)%n;
-			ans = max(ans, (p[i]-p[j]).norm2()); // squared diameter.
+			ans = max(ans, (p[i]-p[j]).norm2());
 		}
 		return ans;
 	}

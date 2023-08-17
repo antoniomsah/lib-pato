@@ -1,8 +1,6 @@
-/**
- * Basic geometry structures using integers. 
- *
- * Complexity: O(1) unless stated.
- **/
+// Basic geometry structures using integers
+//
+// Complexity: O(1) unless stated
 
 using coord = long long;
 const double EPS = 1e-8;

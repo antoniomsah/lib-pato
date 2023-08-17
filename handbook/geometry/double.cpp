@@ -1,8 +1,6 @@
-/**
- * Basic geometry structures using double.
- *
- * Complexity: O(1) unless stated.
- **/
+// Basic geometry structures using double
+//
+// Complexity: O(1) unless stated
 
 using coord = double;
 const double EPS = 1e-8;
