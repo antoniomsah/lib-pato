@@ -3,7 +3,10 @@
 using namespace std;
 
 #define fastio ios_base::sync_with_stdio(0); cin.tie(0)
-#define int long long
+
+using ll = long long;
+
+#define int ll
 #define pb push_back
 #define all(a) a.begin(), a.end()
 
