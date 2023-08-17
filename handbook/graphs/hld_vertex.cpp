@@ -1,23 +1,21 @@
-/**
- * Heavy-light decomposition for vertices.
- *
- * Description:
- * 		Allows range queries and updates on trees. Template uses
- * 		lazy segment tree, keep in mind that if structure is changed
- * 		then the complexities change.
- *
- * Functions:
- * 		query_path(a,b): 	 sum of elements in the path a -> b
- * 		update_path(a,b,x):	 sums x to elements in path a -> b
- * 		query_subtree(a):	 sum of elements in the subtree of a
- * 		update_subtree(a,x): sums x to elements in the subtree of a
- *
- * Complexity:
- * 		query_path:  	O(lg^2 n)
- * 		update_path: 	O(lg^2 n)
- * 		query_subtree: 	O(lgn)
- * 		update_subtree: O(lgn)
- **/
+// Heavy-light decomposition for vertices
+//
+// Description:
+// 		Allows range queries and updates on trees. Template uses
+// 		lazy segment tree, keep in mind that if structure is changed
+// 		then the complexities change.
+//
+// Functions:
+// 		query_path(a,b): 	 sum of elements in the path a -> b
+// 		update_path(a,b,x):	 sums x to elements in path a -> b
+// 		query_subtree(a):	 sum of elements in the subtree of a
+// 		update_subtree(a,x): sums x to elements in the subtree of a
+//
+// Complexity:
+// 		query_path:  	O(lg^2 n)
+// 		update_path: 	O(lg^2 n)
+// 		query_subtree: 	O(lgn)
+// 		update_subtree: O(lgn)
 
 const int MAXN = 6e5;
 

@@ -1,13 +1,11 @@
-/**
- * Tarjan's algorithm for strongly connected components
- *
- * Description: 
- * 		Builds an array scc such that scc[u] = scc[v] 
- * 		iff u and v are in the same component. And build an
- * 		array sz such that sz[scc[u]] is the size of u's component.
- *
- * Complexity: O(n+m)
- **/
+// Tarjan's algorithm for strongly connected components
+//
+// Description: 
+// 		Builds an array scc such that scc[u] = scc[v] 
+// 		iff u and v are in the same component. And build an
+// 		array sz such that sz[scc[u]] is the size of u's component.
+//
+// Complexity: O(n+m)
 
 struct tarjan_scc {
 	int nscc;

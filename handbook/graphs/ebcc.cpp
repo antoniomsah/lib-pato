@@ -1,15 +1,13 @@
-/**
- * Tarjan's algorithm for edge-biconnected components
- *
- * Description:
- * 		Builds an array ebcc such that ebcc[u] = ebcc[v] iff
- * 		u and v are in the same component. 
- *
- * 		Builds an array sz such that sz[ebcc[u]] is the size
- * 		of u's component.
- *
- * Complexity: O(n+m)
- **/
+// Tarjan's algorithm for edge-biconnected components
+//
+// Description:
+// 		Builds an array ebcc such that ebcc[u] = ebcc[v] iff
+// 		u and v are in the same component. 
+//
+// 		Builds an array sz such that sz[ebcc[u]] is the size
+// 		of u's component.
+//
+// Complexity: O(n+m)
 
 struct tarjan_ebcc {
 	int nebcc;
