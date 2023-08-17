@@ -1,11 +1,10 @@
 // BIT (Fenwick tree)
 //
-// Description: 
-// 		Query and update are 1-indexed.
-//
 // Functions:
 // 		query(l,r):	 sum of elements in range [l,r]
 // 		update(i,x): sums x to value in position i
+//
+// Details: query and update are 1-indexed.
 //
 // Complexity:
 // 		build: 	O(n)
