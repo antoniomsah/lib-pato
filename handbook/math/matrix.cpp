@@ -1,3 +1,9 @@
+// Matrix structure
+//
+// Complexity: 
+// 		operator*: O(n^3)
+// 		operator^: O(n^3 lgn)
+
 template<typename T> 
 struct Matrix : vector<vector<T>> {
 	int n,m;

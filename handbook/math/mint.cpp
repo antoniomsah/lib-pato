@@ -1,3 +1,5 @@
+// Modular integer structure
+
 template <const int MOD>
 struct mint {
 	int x;
