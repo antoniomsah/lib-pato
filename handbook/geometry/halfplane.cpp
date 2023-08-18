@@ -1,6 +1,4 @@
-// Halfplane structure
-//
-// Dependencies: Point and Line
+// Halfplane
 //
 // Complexity: O(1) unless stated
 

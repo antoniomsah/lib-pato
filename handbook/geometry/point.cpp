@@ -1,11 +1,6 @@
 // Point
 //
-// Description: 
-//		Structure to handle points
-//
 // Complexity: O(1) unless stated
-
-#warning caution with double precisions
 
 int sign(int x) { return (x>0) - (x<0); }
 

@@ -1,3 +1,7 @@
+// Segment
+//
+// Complexity: O(1) unless stated
+
 template <class T>
 struct Segment {
 	using P = Point<T>;

@@ -1,8 +1,6 @@
 // Circle intersection area algorithm
 //
-// Description:
-// 		Algorithm from el-vasito. 
-// 		Finds the area covered by at least k circles.
+// Description: finds the area covered by at least k circles.
 //
 // Complexity: O(n^2 lgn) with high constant.
 

@@ -4,8 +4,6 @@
 // 		Finds a convex polygon that is covered by all halfplanes.
 // 		If does not exist, then returns an empty vector.
 //
-// Dependencies: Halfplane
-//
 // Complexity: O(nlgn)
 
 vector<P> intersection(vector<H> h) {

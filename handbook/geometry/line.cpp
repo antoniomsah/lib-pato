@@ -1,3 +1,6 @@
+// Line
+//
+// Complexity: O(1) unless stated
 
 template <class T>
 struct Line {

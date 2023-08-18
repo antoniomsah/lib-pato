@@ -1,4 +1,6 @@
-const double EPS = 1e-9;
+// Circle
+//
+// Complexity: O(1) unless stated
 
 const Point<int> ccw(1,0);
 
