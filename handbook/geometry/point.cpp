@@ -30,7 +30,9 @@ struct Point {
 	P rot(double ang) { return rot(P(sin(ang), cos(ang))); }
 
 	double angle() { return atan2(y,x); }
-	double angle(P p) { return acos(max(-1.0, min(1.0, (*this)*p/(norm()*p.norm())))); }
+	double angle(P p) { 
+		return acos(max(-1.0, min(1.0, (*this)*p/(norm()*p.norm())))); 
+	}
 
 	P perp() { return P(-y,x); }
 	bool is_perp(P p) { return ((*this) * p) == 0; }

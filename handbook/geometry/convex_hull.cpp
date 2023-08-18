@@ -1,6 +1,6 @@
 // Convex hull
 //
-// Description: Monotone chain algorihtm.
+// Description: Monotone chain algorithm.
 //
 // Details: Border represents the inclusion of collinear points
 //
@@ -9,7 +9,8 @@
 template <typename T>
 vector<T> convex_hull(vector<T> p, bool border=0){
 	sort(p.begin(), p.end());
-	p.erase(unique(p.begin(), p.end()), p.end()); // removes duplicated points
+	// removes duplicated points
+	p.erase(unique(p.begin(), p.end()), p.end()); 
 
 	if(p.size() == 1) return p;
 	int n = p.size(), m=0;

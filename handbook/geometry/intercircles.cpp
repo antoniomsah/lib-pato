@@ -13,7 +13,8 @@ bool cmp(P a, P b, P o){
 }
 
 vector<double> intercircles(vector<C> &c) {
-	vector<double> cover(c.size()+1); // area covered by at least k circles
+	// area covered by at least k circles
+	vector<double> cover(c.size()+1); 
 	for(int i=0; i<c.size(); i++) {
 		int k=1;
 		vector<pair<P,int>> p = {{c[i].c+P(1,0)*c[i].r,0}, {c[i].c-P(1,0)*c[i].r,0}};

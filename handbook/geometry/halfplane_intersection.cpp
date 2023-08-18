@@ -1,8 +1,7 @@
 // Halfplane intersection algorithm
 //
-// Description:
-// 		Finds a convex polygon that is covered by all halfplanes.
-// 		If does not exist, then returns an empty vector.
+// Description: Finds a convex polygon that is covered by all halfplanes. 
+// If does not exist, then returns an empty vector.
 //
 // Complexity: O(nlgn)
 
