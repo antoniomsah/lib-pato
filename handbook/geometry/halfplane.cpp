@@ -1,29 +1,33 @@
 // Halfplane structure
 //
-// Dependencies: point and line
+// Dependencies: Point and Line
 //
 // Complexity: O(1) unless stated
 
-struct halfplane {
-	point p,q;
+template <class T>
+struct Halfplane {
+	using P = Point<T>;
+	using H = Halfplane;
+
+	P p,q;
 	double ang;
 
-	halfplane() {}
-	halfplane(point p, point q) : 
+	Halfplane() {}
+	Halfplane(P p, P q) : 
 		p(p), q(q), ang(atan2((q-p).y, (q-p).x)) {}
 
-	bool operator<(const halfplane& rhs) const {
-		if(fabsl(ang-rhs.ang) < EPS) return right(p,q,rhs.p);
-		return ang < rhs.ang;
+	bool operator<(H h) const {
+		if(fabsl(ang-h.ang) < EPS) return right(p,q,h.p);
+		return ang < h.ang;
 	}
 
-	bool operator==(const halfplane& rhs) const { return fabsl(ang-rhs.ang) < EPS; }
+	bool operator==(H h) const { return fabsl(ang-h.ang) < EPS; }
 
-	bool out(point r) { return right(p,q,r); }
+	bool out(P r) { return right(p,q,r); }
 
-	point intersection(const halfplane& rhs) const {
-		point r(INF,INF);
-		inter(line(p,q), line(rhs.p,rhs.q), r);
+	friend P intersection(H a, H b) {
+		P r(INF,INF);
+		inter(Line(a.p,a.q), Line(b.p, b.q), r);
 		return r;
 	}
 };
