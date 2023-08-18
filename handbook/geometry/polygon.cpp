@@ -4,29 +4,32 @@
 //
 // Complexity: O(1) unless stated
 
-struct polygon {
+template <class T>
+struct Polygon {
+	using P = Point<T>;
+
 	int n;
-	vector<point> p;
-	polygon() {}
-	polygon(vector<point> q) : n(q.size()), p(q) {}
+	vector<P> p;
+	Polygon() {}
+	Polygon(vector<P> q) : n(q.size()), p(q) {}
 
 	// Positive represents counter-clockwise order. Negative represent clockwise order.
 	// Complexity: O(n)
-	coord orientation() {
-		coord acum=0;
+	T orientation() {
+		T acum=0;
 		for(int i=0; i<n; i++) {
 			acum += p[i]^p[(i+1)%n];
 		}
-		return acu,;
+		return acum;
 	}
 
 	// Complexity: O(n)
 	double area() { return double(area2())/2; }
-	coord area2() { return abs(orientation()); }
+	T area2() { return abs(orientation()); }
 
 	// Return true if point q is inside the polygon. The polygon must be convex and in ccw order.
 	// Complexity: O(lgn)
-	bool contains(point q) {
+	bool contains(P q) {
 		if(right(p[0],p[1],q) or left(p[0],p[n-1],q)) return false;
 		int l=1, r=n;
 		while(r-l > 1) {
@@ -40,8 +43,8 @@ struct polygon {
 
 	// Returns the squared diameter (uses rotating calipers).
 	// Complexity: O(n)
-	coord diameter(){ 
-		coord ans=0;
+	T diameter(){ 
+		T ans=0;
 		for(int i=0,j=1; i<n; i++){
 			while(((p[(i+1)%n]-p[i])^(p[(j+1)%n]-p[j])) > 0) j = (j+1)%n;
 			ans = max(ans, (p[i]-p[j]).norm2());
