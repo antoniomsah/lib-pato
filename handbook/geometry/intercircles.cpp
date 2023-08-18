@@ -4,6 +4,7 @@
 //
 // Complexity: O(n^2 lgn) with high constant.
 
+using P = Point<long long>;
 using C = Circle<long long>;
 
 bool cmp(P a, P b, P o){

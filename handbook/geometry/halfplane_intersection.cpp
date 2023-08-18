@@ -6,6 +6,9 @@
 //
 // Complexity: O(nlgn)
 
+using P = Point<long long>;
+using H = Halfplane<long long>;
+
 vector<P> intersection(vector<H> h) {
 	P box[4] = {{-INF,-INF}, {INF,-INF}, {INF,INF}, {-INF,INF}};
 	for(int i=0; i<4; i++) {
