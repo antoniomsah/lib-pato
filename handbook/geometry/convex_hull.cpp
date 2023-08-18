@@ -1,8 +1,8 @@
 // Convex hull
 //
-// Description: 
-// 		Monotone chain algorihtm.
-// 		Border represents the inclusion of collinear points
+// Description: Monotone chain algorihtm.
+//
+// Details: Border represents the inclusion of collinear points
 //
 // Complexity: O(nlgn)
 
