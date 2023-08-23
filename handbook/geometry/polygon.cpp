@@ -71,5 +71,27 @@ struct Polygon {
 		}
 		return l;
 	}
+
+	// Rotates the polygon points such that
+	// p[0] is the lowest leftmost point
+	// Complexity: O(n)
+	void normalize() {
+		rotate(p.begin(), min_element(p.begin(), p.end()), p.end());
+	}
+
+	// Minkowsky sum
+	// Complexity: O(n)
+	Polygon operator+(Polygon& other) {
+		vector<P> sum;
+        normalize();
+        other.normalize();
+		ll dir;
+        for(int i = 0, j = 0; i < n || j < other.n; i += dir >= 0, j += dir <= 0) {
+            sum.pb(p[i % n] + other.p[j % other.n]);
+            dir = (p[(i + 1) % n] - p[i % n]) 
+                    ^ (other.p[(j + 1) % other.n] - other.p[j % other.n]);
+        }
+        return Polygon(sum);
+	}
 };
 
