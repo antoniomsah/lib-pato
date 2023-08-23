@@ -49,5 +49,27 @@ struct Polygon {
 		}
 		return ans;
 	}
+
+	// Returns the index of an extreme point 
+	// Complexity: O(lgn)
+	int extreme(const function<bool(P, P)> &cmp) {
+		auto isExtreme = [&](int i, bool& curDir) -> bool {
+			curDir = cmp(p[(i + 1) % n], p[i]);
+			return !cmp(p[(i + n - 1) % n], p[i]) && !curDir;
+		};
+		bool lastDir, curDir;
+		if(isExtreme(0, lastDir)) return 0;
+		int l = 0, r = n; 
+		while(l + 1 < r) {
+			int m = (l + r) >> 1;
+			if(isExtreme(m, curDir)) return m;
+			bool relDir = cmp(p[m], p[l]);
+			if((!lastDir && curDir) || (lastDir == curDir && relDir == curDir)) {
+				l = m;
+				lastDir = curDir;
+			} else r = m;
+		}
+		return l;
+	}
 };
 
