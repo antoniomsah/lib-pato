@@ -40,8 +40,8 @@ struct Point {
 	bool side() { return (y > 0) or (y == 0 and x < 0); }
 
 	friend T cross(P a, P b, P c) { return (b-a)^(c-a); }
-	friend bool left(P a, P b, P c) { return area2(a,b,c) > 0; }
-	friend bool right(P a, P b, P c) { return area2(a,b,c) < 0; }
+	friend bool left(P a, P b, P c) { return cross(a,b,c) > 0; }
+	friend bool right(P a, P b, P c) { return cross(a,b,c) < 0; }
 
 	friend ostream& operator<<(ostream& os, P p) {
 		return os<<"("<<p.x<<", "<<p.y<<")"; 
