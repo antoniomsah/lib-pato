@@ -19,7 +19,7 @@ struct Segment {
 	T len2() { return (q-p).norm2(); }
 
 	// for Shamos-Hoey
-#warning the case q == other.p is such that this == other, might give wrong answer
+#warning caution in the case p == s.q (ex. checking if a polygon is simple)
 	bool operator<(S s) {
 		if(p == s.p) return cross(p, q, s.q) > 0;
 		if(p.x != q.x and (s.p.x == s.q.x or p.x < s.p.x))
