@@ -99,7 +99,7 @@ struct Polygon {
         other.normalize();
 		ll dir;
         for(int i = 0, j = 0; i < n || j < other.n; i += dir >= 0, j += dir <= 0) {
-            sum.pb(p[i % n] + other.p[j % other.n]);
+            sum.push_back(p[i % n] + other.p[j % other.n]);
             dir = (p[(i + 1) % n] - p[i % n]) 
                     ^ (other.p[(j + 1) % other.n] - other.p[j % other.n]);
         }
