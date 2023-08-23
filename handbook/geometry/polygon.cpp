@@ -72,6 +72,18 @@ struct Polygon {
 		return l;
 	}
 
+	// Finds the indices of the two tangents to an external point q
+	// Complexity: O(lgn)
+	pair<int,int> tangent(P q) {
+		auto leftTangent = [&](P r, P s) -> bool {
+            return cross(q, r, s) > 0;
+        };
+        auto rightTangent = [&](P r, P s) -> bool {
+            return cross(q, r, s) < 0;
+        };
+        return {extreme(leftTangent), extreme(rightTangent)};
+	}
+
 	// Rotates the polygon points such that
 	// p[0] is the lowest leftmost point
 	// Complexity: O(n)
