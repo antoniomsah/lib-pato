@@ -22,7 +22,7 @@ struct Segment {
 #warning the case q == other.p is such that this == other, might give wrong answer
 	bool operator<(S s) {
 		if(p == s.p) return cross(p, q, s.q) > 0;
-		if(p.x == q.x and (s.p.x == s.q.x or p.x < s.p.x))
+		if(p.x != q.x and (s.p.x == s.q.x or p.x < s.p.x))
 			return cross(p, q, s.p) > 0;
 		return cross(p, s.q, s.p) > 0;
 	}
