@@ -1,25 +1,50 @@
 // Kuhn algorithm
+//
+// Description: computes a maximum matching in a bipartite graph
+//
+// Complexity: O(VE)
+//
+// Details: if not using add, the adjacency of only one side is needed
+
+
+mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
 struct Kuhn {
-    int max_match;
-    vector<int> mat;
-    Kuhn(int n, int m, vector<vector<int>> &adj):mat(m,-1),max_match(0){
-        vector<bool> vis(n);
-        function<bool(int)> match = [&](int x){
-            if(vis[x]) return false;
-            vis[x] = true;
-            for(auto v:adj[x]){
-                if(mat[v] < 0 or match(mat[v])){
-                    max_match += (mat[v] < 0);
-                    mat[v] = x;
-                    return true;
-                }
+    int n,m; 
+    vector<vector<int>> adj;
+    vector<int> mu, mv;
+
+    Kuhn(int n, int m) : 
+        n(n), m(m), adj(n), mu(n,-1), mv(m,-1) {}
+
+    void add(int u, int v) {
+        adj[u].push_back(v);
+    }
+
+    int matching() {
+		vector<bool> vis(n+m, false);
+
+		function<bool(int)> dfs = [&](int u) {
+			vis[u] = true;
+			for(int v: adj[u]) if(!vis[n+v]) {
+				vis[n+v] = true;
+				if(mv[v] == -1 or dfs(mv[v])) {
+					mu[u] = v, mv[v] = u;
+					return true;
+				}
+			}
+			return false;
+		};
+
+        int ret=0, aum=1;
+        for(auto& u: adj) shuffle(u.begin(), u.end(), rng);
+        while(aum) {
+			fill(vis.begin()+n, vis.end(), false);
+            aum=0;
+            for(int u=0; u<n; u++) {
+                if(mu[u] == -1 and dfs(u)) ret++, aum=1;
             }
-            return false;
-        };
-        for(int i=0;i<n;i++){
-            fill(all(vis),0ll);
-            match(i);
         }
-    } 
+        return ret;
+    }
 };
