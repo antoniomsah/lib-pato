@@ -15,3 +15,5 @@ Some of the codes were made by us, but most of them were copied/adapted from the
 - https://github.com/gustavoM32/caderno-zika
 
 - https://github.com/mhunicken/icpc-team-notebook-el-vasito
+
+- https://github.com/thilio/Competitive-programming-team/
