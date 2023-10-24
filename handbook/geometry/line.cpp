@@ -16,9 +16,9 @@ struct Line {
 	double dist(P p)  { return sqrt(dist2(p)); }
 	T dist2(P p) { return side(p)*side(p)/v.norm2(); }
 
-	L perp(P p) { return P(p, p+v.perp()); }
+	L perp(P p) { return L(p, p+v.perp()); }
 	P proj(P p) { return p - v.perp()*side(p)/v.norm2(); }
-	bool parallel(L l) { return (v^L.v) == 0; }
+	bool parallel(L l) { return (v^l.v) == 0; }
 
 	friend bool inter(L l1, L l2, P &q) {
 		if(l1.parallel(l2)) return false;

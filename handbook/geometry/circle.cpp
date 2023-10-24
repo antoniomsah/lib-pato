@@ -17,25 +17,27 @@ struct Circle {
 	bool has(P p) { return (c-p).norm2() <= r*r; }
 
 	// returns intersection points between line and circle
-	vector<P> operator^(Line<T> l) {
-		T d = l.dist(c);
-		if(sign(d-r) > 0) return {};
-		P proj = l.proj(c);
-		if(sign(d-r) == 0) return {proj}; 
-		P aux = (l.v.perp()/l.v.norm()) * sqrt(r*r-d*d);
-		return {proj+aux, proj-aux};
+	vector<P> intersect(Line<T> l) {
+		T h2 = r*r - l.dist2(c);
+		if (h2 > -EPS) {
+			P p = l.proj(c);
+			P h = l.v*sqrt(h2)/l.v.norm();
+			if (h.norm() < EPS) return {p};
+			return {p+h, p-h};
+		}
+		return {};
 	}
 
 	// returns intersection points between two circles
-	vector<P> operator^(C rhs) {
+	vector<P> intersect(C rhs) {
 		vector<P> inter;
 		C d = (c-rhs.c).norm();
 		if(d > r + rhs.r + EPS or d + min(r,rhs.r) + EPS < max(r,rhs.r) ) return inter;
 		T x = (d*d - rhs.r*rhs.r + r*r) / (2*d),
 		  y = sqrt(r*r - x*x);
 		P v = (rhs.c-c)/d;
-		inter.push_back(c + v*x - v.rot(ccw90)*y);
-		if(y>EPS) inter.push_back(c+v*x+v.rot(ccw90)*y);
+		inter.push_back(c + v*x - v.rot(ccw)*y);
+		if(y>EPS) inter.push_back(c+v*x+v.rot(ccw)*y);
 		return inter;
 	}
 };
