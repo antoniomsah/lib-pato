@@ -23,7 +23,7 @@ vector<double> intercircles(vector<C> &c) {
 			bool b0 = c[i].in(c[j]), b1 = c[j].in(c[i]);
 			if(b0 and (!b1 or i<j)) k++;
 			else if (!b0 and !b1) {
-				auto v = c[i]^c[j];
+				auto v = c[i].intersect(c[j]);
 				if(v.size() == 2) {
 					p.push_back({v[0],1}); p.push_back({v[1],-1});
 					if(cmp(v[1],v[0],c[i].c)) k++;
@@ -40,7 +40,7 @@ vector<double> intercircles(vector<C> &c) {
 			P a = p[j? j-1: p.size()-1].first, // (j-1+p.size())%p.size()
 				  b = p[j].first;
 			double ang = (a-c[i].c).angle(b-c[i].c);
-			cover[k] += (a.x-b.x)*(a.y+b.y)/2 + c[i].r * c[i].r * (ang-sin(ang))/2;
+			cover[k] += (a.x-b.x)*(a.y+b.y)/2.0 + c[i].r * c[i].r * (ang-sin(ang))/2.0;
 			k += p[j].second;
 		}
 	}

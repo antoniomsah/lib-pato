@@ -2,7 +2,8 @@
 //
 // Complexity: O(1) unless stated
 
-int sign(int x) { return (x>0) - (x<0); }
+template <typename T>
+int sign(T x) { return (x>0) - (x<0); }
 
 template <class T>
 struct Point {
@@ -26,6 +27,7 @@ struct Point {
 	bool operator==(P p) { return tie(x,y) == tie(p.x,p.y); }
 	bool operator!=(P p) { return tie(x,y) != tie(p.x,p.y); }
 
+	// rotations are counter-clockwise
 	P rot(P p) { return P((*this)^p, (*this)*p); }
 	P rot(double ang) { return rot(P(sin(ang), cos(ang))); }
 

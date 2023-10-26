@@ -21,21 +21,37 @@ struct Segment {
 	// for Shamos-Hoey
 #warning caution in the case p == s.q (ex. checking if a polygon is simple)
 	bool operator<(S s) {
-		if(p == s.p) return cross(p, q, s.q) > 0;
-		if(p.x != q.x and (s.p.x == s.q.x or p.x < s.p.x))
+		if (p == s.p) return cross(p, q, s.q) > 0;
+		if (p.x != q.x and (s.p.x == s.q.x or p.x < s.p.x))
 			return cross(p, q, s.p) > 0;
 		return cross(p, s.q, s.p) > 0;
 	}
 
 	// checks if two segments intersect
 	friend bool inter(S a, S b) {
-		if(a.has(b.p) or a.has(b.q) or b.has(a.p) or b.has(a.q)) {
+		if (a.has(b.p) or a.has(b.q) or b.has(a.p) or b.has(a.q)) {
 			return true;
 		}
-		return left(a.p, a.q, b.p) != left(a.p, a.q, b.q) and
-			   left(b.p, b.q, a.p) != left(b.p, b.q, a.q);
+		P out;
+		return properInter(a, b, out);
 	}
 
-	Line<T> getline() { return Line(p,q); }
+	friend bool properInter(S s1, S s2, P &out) {
+		P a = s1.p, b = s1.q, c = s2.p, d = s2.q;
+
+		double oa = cross(c, d, a),
+			   ob = cross(c, d, b),
+			   oc = cross(a, b, c),
+			   od = cross(a, b, d);
+
+		if (oa*ob < 0 and oc*od < 0) {
+			out = (a*ob - b*oa) / (ob-oa);
+			return true;
+		}
+
+		return false;
+	}
+
+	Line<T> getLine() { return Line(p,q); }
 };
 
