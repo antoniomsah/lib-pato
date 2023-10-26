@@ -7,25 +7,22 @@ struct Halfplane {
 	using P = Point<T>;
 	using H = Halfplane;
 
-	P p,q;
+	P p, pq;
 	double ang;
 
 	Halfplane() {}
-	Halfplane(P p, P q) : 
-		p(p), q(q), ang(atan2((q-p).y, (q-p).x)) {}
-
-	bool operator<(H h) const {
-		if(fabsl(ang-h.ang) < EPS) return right(p,q,h.p);
-		return ang < h.ang;
+	Halfplane(P p, P q) : p(p), pq(q-p) {
+		ang = atan2l(pq.y, pq.x);
 	}
+
+	bool operator<(H h) const { return ang < h.ang; }
 
 	bool operator==(H h) const { return fabsl(ang-h.ang) < EPS; }
 
-	bool out(P r) { return right(p,q,r); }
+	bool out(P r) { return (pq^(r-p)) < -EPS; }
 
-	friend P intersection(H a, H b) {
-		P r(INF,INF);
-		inter(Line(a.p,a.q), Line(b.p, b.q), r);
-		return r;
+	friend P inter(H s, H t) {
+		double alpha = ((t.p - s.p)^t.pq) / (s.pq^t.pq);
+		return s.p + s.pq*alpha;
 	}
 };
