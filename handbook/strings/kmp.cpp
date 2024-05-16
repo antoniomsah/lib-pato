@@ -16,3 +16,17 @@ vector<int> kmp(int sz, const T s[]) {
 	}
 	return p;
 }
+
+vector<vector<int>> automaton(string s) {
+    s += '#';
+    int n = (int)s.size();
+    auto p = kmp(s.size(), s.data());
+    vector<vector<int>> aut(n,vector<int>(26,0));
+    for(int i=0;i<n;i++) {
+        for(int c=0;c<26;c++) {
+            if(i>0 && 'a'+c != s[i]) aut[i][c] = aut[p[i-1]][c];
+            else aut[i][c] = i + ('a' + c == s[i]);
+        }
+    }
+    return aut;
+}
