@@ -52,7 +52,7 @@ struct Circle {
 
 		vector<pair<P,P>> ret;
 		for (double sign : {-1, 1} ){
-			P v = (d*dr - d.perp()*d.norm()*sign)/d2;
+			P v = (d*dr - d.perp()*sqrt(h2)*sign)/d2;
 			ret.emplace_back(c + v*r, rhs.c + v*rhs.r);
 		}
 		return ret;
