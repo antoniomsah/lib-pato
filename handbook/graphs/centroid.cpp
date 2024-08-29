@@ -29,10 +29,8 @@ namespace centroid {
 		int c = get_centroid(root, set_sizes(root));
 		removed[c] = true;
 
-		/**
-		 * Answer in linear time here
-		 * Example: number of paths of length k
-		 **/
+		// Answer in linear time here
+		// Example: number of paths of length k
 
 		int res = 0;
 		queue<int> add, rem;
@@ -58,9 +56,7 @@ namespace centroid {
 			dists[d] -= 1;
 		}
 
-		/**
-		 * Example end.
-		 **/
+		// Example end.
 
 		for (int v: adj[c]) if (not removed[v]) {
 			res += solve(v, k);

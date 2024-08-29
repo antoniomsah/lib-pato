@@ -62,11 +62,9 @@ struct aho_corasick {
 		build();
 	}
 
-	/**
-	 * Example: CSES Word Combinations.
-	 * dp[i] is the # of ways to generate string [1...i]
-	 * (where s[1...0] = empty string)
-	 **/
+	// Example: CSES Word Combinations.
+	// dp[i] is the # of ways to generate string [1...i]
+	// (where s[1...0] = empty string)
 	mint query(const string& s) {
 		int at = 0, i = 0;
 		vector<mint> dp(s.size()+1); dp[0] = 1;
