@@ -11,7 +11,7 @@ enum {
 	REM
 };
 
-bool shamos_hoey(const vector<S>& seg) {
+bool shamos_hoey(vector<S> seg) {
 	vector<array<ll, 3> > ev;
 	for (int i = 0; i < seg.size(); i++) {
 		if(seg[i].q < seg[i].p) swap(seg[i].p, seg[i].q);
