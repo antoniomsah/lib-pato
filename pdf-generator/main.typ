@@ -3,14 +3,12 @@
 #import sym
 // Change here
 #show: project.with(
-  title: "Universidade de São Paulo - Codando & Coringando",
+  title: "Universidade de São Paulo - pato",
   date: datetime.today().display(),
   authors: (
-    "LipArcanjo",
-    "nathan_luiz",
-    "wnmrmr",
+    "antoniomsah",
+    "darling51707",
   ),
-  logo: "phik.jpg"
 )
 
 = Template hashing
