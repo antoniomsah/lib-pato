@@ -6,18 +6,23 @@
 
 using S = Segment<ll>;
 
-bool shamos_hoey(vector<S> seg) {
+enum {
+	ADD,
+	REM
+};
+
+bool shamos_hoey(const vector<S>& seg) {
 	vector<array<ll, 3> > ev;
-	for(int i = 0; i < seg.size(); i++) {
-	if(seg[i].q < seg[i].p) swap(seg[i].p, seg[i].q);
-		ev.push_back({seg[i].p.x, 0, i});
-		ev.push_back({seg[i].q.x, 1, i});
+	for (int i = 0; i < seg.size(); i++) {
+		if(seg[i].q < seg[i].p) swap(seg[i].p, seg[i].q);
+		ev.push_back({seg[i].p.x, ADD, i});
+		ev.push_back({seg[i].q.x, REM, i});
 	}
 	sort(ev.begin(), ev.end());
 	set<S> s;
-	for(auto e: ev) {
+	for (const auto &e : ev) {
 		S at = seg[e[2]];
-		if(!e[1]) {
+		if (e[1] == ADD) {
 			auto nxt = s.lower_bound(at);
 			if((nxt != s.end() && inter(*nxt, at))
 				|| (nxt != s.begin() && inter(*prev(nxt), at))) {

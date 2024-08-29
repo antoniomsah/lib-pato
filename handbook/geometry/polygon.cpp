@@ -18,8 +18,8 @@ struct Polygon {
 	// Complexity: O(n)
 	T orientation() {
 		T acum=0;
-		for(int i=0; i<n; i++) {
-			acum += p[i]^p[(i+1)%n];
+		for (int i = 0; i < n; i++) {
+			acum += p[i] ^ p[next(i)];
 		}
 		return acum;
 	}
@@ -67,8 +67,8 @@ struct Polygon {
 	// Complexity: O(n)
 	T diameter() { 
 		T ans=0;
-		for(int i=0, j=1; i < n; i++){
-			while (((p[next(i)]-p[i])^(p[next(j)]-p[j])) > 0) j = next(j);
+		for (int i = 0, j = 1; i < n; i++) {
+			while (((p[next(i)]-p[i]) ^ (p[next(j)]-p[j])) > 0) j = next(j);
 			ans = max(ans, (p[i]-p[j]).norm2());
 		}
 		return ans;

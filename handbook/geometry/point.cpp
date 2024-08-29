@@ -3,7 +3,7 @@
 // Complexity: O(1) unless stated
 
 template <typename T>
-int sign(T x) { return (x>0) - (x<0); }
+int sign(T x) { return (x > 0) - (x < 0); }
 
 template <class T>
 struct Point {
@@ -14,13 +14,13 @@ struct Point {
 	double norm() { return sqrt(norm2()); }
 	T norm2() { return (*this) * (*this); }
 
-	P operator+(P p) { return P(x+p.x, y+p.y); }
-	P operator-(P p) { return P(x-p.x, y-p.y); }
-	P operator*(T t) { return P(x*t, y*t); }
-	P operator/(T t) { return P(x/t, y/t); }
+	P operator+(P p) { return P(x + p.x, y + p.y); }
+	P operator-(P p) { return P(x - p.x, y - p.y); }
+	P operator*(T t) { return P(x * t, y * t); }
+	P operator/(T t) { return P(x / t, y / t); }
 
-	T operator*(P p) { return x*p.x + y*p.y; }
-	T operator^(P p) { return x*p.y - y*p.x; }
+	T operator*(P p) { return x * p.x + y * p.y; }
+	T operator^(P p) { return x * p.y - y * p.x; }
 
 	bool operator<(P p) { return tie(x,y) < tie(p.x,p.y); }
 	bool operator>(P p) { return tie(x,y) > tie(p.x,p.y); }
@@ -53,6 +53,6 @@ struct Point {
 template <typename T>
 void polarsort(vector<T> &v) {
 	sort(v.begin(), v.end(), [](T a, T b) {
-		return make_tuple(a.side(), 0) < make_tuple(b.side(), a^b); 
+		return make_tuple(a.side(), 0) < make_tuple(b.side(), a ^ b); 
 	});
 }
