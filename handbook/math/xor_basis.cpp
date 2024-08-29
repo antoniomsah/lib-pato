@@ -9,7 +9,6 @@
 //
 // Complexity: O(SZ), unless stated otherwise
 
-
 template <const int SZ>
 struct XorBasis {
 	int base[SZ];
